@@ -1,5 +1,6 @@
 import urllib.request
 import urllib.parse
+import re
 
 class NoRedirection(urllib.request.HTTPErrorProcessor):
     def http_response(self, request, response):
@@ -17,6 +18,24 @@ def replace(url, your_key):
     url_parts[4] = urllib.parse.urlencode(params) # 4 is query
 
     return urllib.parse.urlunparse(url_parts)
+
+def get_asin_from_url(url):
+    '''
+    get asin code.
+    Amazon Standard Identification Number: ASIN
+    '''
+    url = url.lower()
+    amazon_r = re.compile(r'^https?://(?:[^.]+\.)?(?:images-)?amazon\.(?:com|ca|co\.uk|de|co\.jp|jp|fr|cn)(/.+)$')
+    amazon = amazon_r.match(url)
+    if not amazon:
+      return None
+    pattern = r'(?:[/dp/]|$)([A-Z0-9]{10})'
+    asin_r = re.compile(pattern, re.VERBOSE)
+    asin = asin_r.search(url)
+    if asin:
+      return asin.group(1).upper()
+    else:
+      return None
 
 def get_target_url(url):
     req = urllib.request.Request(url, method="HEAD")
