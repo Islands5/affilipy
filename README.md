@@ -5,16 +5,16 @@ Replace other users affiliate link to own one.
 ## Instration  
 
 ```
-pip install afiliepy
+pip install affilipy
 ```
 
 ## Usage  
 
 ```
-import afiliepy
+import affilipy
 
-from afiliepy import afiliepy
+from affilipy import affilipy
 
-afiliepy.replace('amazon', 'https://amzn.to/...', your_key)
+affilipy.replace('amazon', 'https://amzn.to/...', your_key)
 #=> https://www.amazon.co.jp/gp/product/...?tag={your_key}
 ```

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock, patch
 
-from afiliepy.amazon import amazon
+from affilipy.amazon import amazon
 
 class TestAmazon(unittest.TestCase):
     @patch('urllib.request.OpenerDirector.open')
