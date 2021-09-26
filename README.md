@@ -11,10 +11,10 @@ pip install affilipy
 ## Usage  
 
 ```
-import affilipy
+from affilipy.amazon import amazon as amz
 
-from affilipy import affilipy
-
-affilipy.replace('amazon', 'https://amzn.to/...', your_key)
+amz.replace('https://amzn.to/...', your_key)
 #=> https://www.amazon.co.jp/gp/product/...?tag={your_key}
+amz.get_asin_from_url('https://www.amazon.co.jp/gp/product/...')
+#=> B123456789
 ```

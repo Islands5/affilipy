@@ -29,7 +29,7 @@ def get_asin_from_url(url):
     amazon = amazon_r.match(url)
     if not amazon:
       return None
-    pattern = r'(?:[/dp/]|$)([A-Z0-9]{10})'
+    pattern = r'(?:[/dp/]|$)([a-z0-9]{10})'
     asin_r = re.compile(pattern, re.VERBOSE)
     asin = asin_r.search(url)
     if asin:

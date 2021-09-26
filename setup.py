@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="affilipy",
-    version='0.1.0',
+    version='0.1.1',
     description='Replace other users affiliate link to own one.',
     author='Islands5',
     license='MIT',
